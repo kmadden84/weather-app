@@ -38,8 +38,6 @@ export default class WeatherDisplay extends Component {
               <span className="weather-display_top--inner_weather">{this.props?.currentWeather?.weather?.[0]?.main}</span></span>
 
           </div>
-
-          {/* <FontAwesomeIcon icon={faCloud} className="weather-display_icon" /> */}
         </div>
         <div className="weather-display_bottom">
           {filteredForecast?.map((forecast, index) => {
