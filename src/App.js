@@ -17,7 +17,7 @@ export class App extends Component {
     this.fetchCurrentWeather.bind(this)
     this.fetchCityForecast.bind(this)
   }
-  const apiKey = process.env.REACT_APP_WEATHER_API;
+
   async componentDidMount() {
     await this.fetchCurrentWeather("Ottawa").then(currentWeather => this.setState({ currentWeather }))
     await this.fetchCityForecast("Ottawa").then(forecastedWeather => this.setState({ forecastedWeather, loader: false }))
@@ -25,14 +25,14 @@ export class App extends Component {
 
   async fetchCurrentWeather(city = "") {
     const [lat, lon] = returnCoordinates(city);
-    const fetchedData = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`);
+    const fetchedData = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${process.env.REACT_APP_WEATHER_API}&units=metric`);
     const parsedData = await fetchedData.json()
     return parsedData;
   }
 
   async fetchCityForecast(city = "") {
     const [lat, lon] = returnCoordinates(city);
-    const fetchedData = await fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`);
+    const fetchedData = await fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${process.env.REACT_APP_WEATHER_API}&units=metric`);
     const parsedData = await fetchedData.json()
     return parsedData;
   }
