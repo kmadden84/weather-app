@@ -37,12 +37,12 @@ export class App extends Component {
     return parsedData;
   }
 
-  async handleCityChange(city) {
+  async handleCityChange(city = "") {
     this.setState({ loader: true })
     const allButtons = document.querySelectorAll('.selection-menu_button');
     const selectedButton = document.querySelector(`[data-rel="${city}"]`);
-    allButtons?.forEach(button => button.classList.remove("selected"));
-    selectedButton.classList.add("selected");
+    allButtons?.forEach(button => button?.classList.remove("selected"));
+    selectedButton?.classList.add("selected");
     await this.fetchCurrentWeather(city).then(currentWeather => this.setState({ currentWeather }));
     await this.fetchCityForecast(city).then(forecastedWeather => this.setState({ forecastedWeather, loader: false }));
   }
@@ -50,8 +50,8 @@ export class App extends Component {
   render() {
     return (
       <>
-        <SelectionMenu key="selection-menu" toggleCity={(city) => this.handleCityChange(city)} />
-        <WeatherDisplay key="weather-display" currentWeather={this.state.currentWeather} forecastedWeather={this.state.forecastedWeather} loader={this.state.loader} />
+        <SelectionMenu toggleCity={(city) => this.handleCityChange(city)} />
+        <WeatherDisplay currentWeather={this.state.currentWeather} forecastedWeather={this.state.forecastedWeather} loader={this.state.loader} />
       </>
     )
   }
