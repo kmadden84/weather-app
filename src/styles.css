@@ -1,0 +1,89 @@
+html {
+  background-color: #eef6fb;
+}
+body {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+div#root {
+  width: 100%;
+}
+.selection-menu {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 25px;
+}
+.selection-menu button.selection-menu_button {
+  background-color: transparent;
+  border: none;
+  font-size: 50px;
+  cursor: pointer;
+}
+.selection-menu button.selection-menu_button.selected {
+  font-weight: bold;
+  color: blue;
+}
+.weather-display {
+  border: 5px solid white;
+  box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  margin-top: 50px;
+}
+.weather-display div[aria-label="circles-loading"] {
+  position: absolute !important;
+  left: calc(50% - 40px) !important;
+  top: 50% !important;
+}
+.weather-display .weather-display_icon {
+  height: 5em;
+}
+.weather-display .weather-display_top {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 0;
+}
+.weather-display .weather-display_top h2 {
+  font-weight: 100;
+  font-size: 33px;
+}
+.weather-display .weather-display_top .weather-display_top--inner {
+  display: flex;
+  align-items: center;
+}
+.weather-display .weather-display_top .weather-display_top--inner span.weather-display_top--inner_temp {
+  font-weight: bold;
+  font-size: 46px;
+}
+.weather-display .weather-display_top .weather-display_top--inner span.weather-display_top--inner_weather {
+  font-size: 25px;
+}
+.weather-display .weather-display_bottom {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+.weather-display .weather-display_bottom .weather-display_bottom--weather_box {
+  border-top: 5px solid white;
+  flex: 0 1 25%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 0;
+}
+.weather-display .weather-display_bottom .weather-display_bottom--weather_box .weather-display_bottom--inner_temp {
+  font-weight: bold;
+  font-size: 20px;
+}
+.weather-display .weather-display_bottom .weather-display_bottom--weather_box span.weather-display_bottom--inner_day {
+  font-size: 25px;
+}
+.weather-display .weather-display_bottom .weather-display_bottom--weather_box:not(:last-child) {
+  border-right: 5px solid white;
+}
