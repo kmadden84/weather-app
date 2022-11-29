@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import WeatherDisplay from './components/WeatherDisplay'
 import SelectionMenu from './components/SelectionMenu'
 import { returnCoordinates } from './helpers/returnCoordinates'
-import { isEmpty } from 'lodash'
 
 export class App extends Component {
   constructor(props) {
