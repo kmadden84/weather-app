@@ -11,7 +11,6 @@ export default class WeatherDisplay extends Component {
     
     const filteredForecast = this.props?.forecastedWeather?.list?.filter((forecast) => forecast?.dt_txt?.indexOf("12:00:00") > -1);
     
-    console.log("filtered forecast", filteredForecast)
     return (
       <div className="weather-display">
         {
