@@ -48,7 +48,7 @@ export default class WeatherDisplay extends Component {
               return (
                 <div className="weather-display_bottom--weather_box" key={index}>
                   <span className="weather-display_bottom--inner_day">{day}</span>
-                  <img src={`http://openweathermap.org/img/wn/${forecast?.weather?.[0]?.icon}@2x.png`} className="weather-display_top--icon" alt={`${forecast?.weather?.[0]?.main}`} />
+                  {forecast?.weather?.[0]?.icon && <img src={`http://openweathermap.org/img/wn/${forecast?.weather?.[0]?.icon}@2x.png`} className="weather-display_top--icon" alt={`${forecast?.weather?.[0]?.main}`} />}
                   <span className="weather-display_bottom--inner_temp">{forecast?.main?.temp}°</span>
                 </div>
               )
