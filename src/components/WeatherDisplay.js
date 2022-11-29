@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { days } from '../constants/days';
 import { Circles } from 'react-loader-spinner'
 
 export default class WeatherDisplay extends Component {
@@ -9,11 +8,10 @@ export default class WeatherDisplay extends Component {
   }
 
   render() {
-
-    const filteredForecast = this.props?.forecastedWeather?.list?.filter((value, index, self) => {
-      return self.findIndex(v => new Date(v.dt_txt).toDateString() === new Date(value.dt_txt).toDateString()) === index;
-    })
-
+    
+    const filteredForecast = this.props?.forecastedWeather?.list?.filter((forecast) => forecast?.dt_txt?.indexOf("12:00:00") > -1);
+    
+    console.log("filtered forecast", filteredForecast)
     return (
       <div className="weather-display">
         {
@@ -41,12 +39,13 @@ export default class WeatherDisplay extends Component {
         </div>
         <div className="weather-display_bottom">
           {filteredForecast?.map((forecast, index) => {
-            const day = days[`${new Date(forecast.dt_txt).getDay()}`]
+            let date = new Date(forecast.dt_txt);
+            let day = date?.toString().slice(0, 3);
             if (index <= 3)
               return (
                 <div className="weather-display_bottom--weather_box" key={index}>
                   <span className="weather-display_bottom--inner_day">{day}</span>
-                  {forecast?.weather?.[0]?.icon && <img src={`http://openweathermap.org/img/wn/${forecast?.weather?.[0]?.icon}@2x.png`} className="weather-display_top--icon" alt={`${forecast?.weather?.[0]?.main}`} />}
+                  <img src={`http://openweathermap.org/img/wn/${forecast?.weather?.[0]?.icon}@2x.png`} className="weather-display_top--icon" alt={`${forecast?.weather?.[0]?.main}`} />
                   <span className="weather-display_bottom--inner_temp">{forecast?.main?.temp}°</span>
                 </div>
               )
