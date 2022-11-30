@@ -47,6 +47,7 @@ div#root {
   flex-direction: column;
   align-items: center;
   padding: 40px 0;
+  border-bottom: 5px solid white;
 }
 img.weather-display_top--icon {
     filter: invert(100%);
@@ -72,7 +73,6 @@ img.weather-display_top--icon {
   width: 100%;
 }
 .weather-display .weather-display_bottom .weather-display_bottom--weather_box {
-  border-top: 5px solid white;
   flex: 0 1 25%;
   display: flex;
   justify-content: center;
