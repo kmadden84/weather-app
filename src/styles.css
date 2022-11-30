@@ -48,6 +48,9 @@ div#root {
   align-items: center;
   padding: 40px 0;
 }
+img.weather-display_top--icon {
+    filter: invert(100%);
+}
 .weather-display .weather-display_top h2 {
   font-weight: 100;
   font-size: 33px;
